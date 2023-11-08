@@ -36,7 +36,68 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>              </dependencies>
+    </dependency>
+      <dependency>
+          <groupId>com.aevi.barcode</groupId>
+          <artifactId>barcode-scanner</artifactId>
+          <version>3.0.1</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+      <dependency>
+          <groupId>com.pnuema.java</groupId>
+          <artifactId>barcode</artifactId>
+          <version>1.13</version>
+      </dependency>
+  </dependencies>
 
   <build>
         <plugins>

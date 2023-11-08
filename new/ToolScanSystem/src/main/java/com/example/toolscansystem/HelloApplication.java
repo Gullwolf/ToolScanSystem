@@ -5,13 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 public class HelloApplication extends Application {
 
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));
         primaryStage.setTitle("Tool Scanner");
         primaryStage.setScene(new Scene(root, 600, 400));
@@ -20,6 +19,6 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }
