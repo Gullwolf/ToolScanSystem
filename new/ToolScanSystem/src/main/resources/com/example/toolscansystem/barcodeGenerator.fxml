@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.toolscansystem.BarcodeGenerator"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toolscansystem.BarcodeGenerator">
+   <children>
+      <TextField fx:id="barcodeTextBox" layoutX="226.0" layoutY="188.0" />
+      <Button layoutX="268.0" layoutY="213.0" mnemonicParsing="false" onAction="#onBarcodeGenerateButtonClick" text="Generate" />
+      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+   </children>
 </AnchorPane>
