@@ -11,9 +11,9 @@
             <Font name="JetBrains Mono Regular" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="274.0" layoutY="188.0" mnemonicParsing="false" text="Search" />
-      <Button layoutX="278.0" layoutY="220.0" mnemonicParsing="false" onAction="#onCloseButtonClick" text="Close" />
-      <Button fx:id="moveToolButton" layoutX="264.0" layoutY="157.0" mnemonicParsing="false" onAction="#onMoveToolButtonClick" text="Move Tool" />
-      <Button layoutX="98.0" layoutY="201.0" mnemonicParsing="false" onAction="#onBarcodeGenerateButtonClick" text="Generate Barcode" />
+      <Button layoutX="274.0" layoutY="149.0" mnemonicParsing="false" onAction="#onSearchButtonClick" text="Search" />
+      <Button layoutX="279.0" layoutY="219.0" mnemonicParsing="false" onAction="#onCloseButtonClick" text="Close" />
+      <Button fx:id="moveToolButton" layoutX="263.0" layoutY="115.0" mnemonicParsing="false" onAction="#onMoveToolButtonClick" text="Move Tool" />
+      <Button layoutX="244.0" layoutY="184.0" mnemonicParsing="false" onAction="#onBarcodeGenerateButtonClick" text="Generate Barcode" />
    </children>
 </AnchorPane>

@@ -5,25 +5,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 import java.sql.*;
 
-public class MoveTool {
+public class SearchScreen {
 
     @FXML
-    private TextField toolTextBox;
-
-    @FXML
-    private TextField storeTextBox;
+    private TextField searchTextBox;
 
     @FXML
     private AnchorPane rootPane;
 
-    public void onSubmitButtonClick() {
+    @FXML
+    private Label outputLabel;
 
-        if (toolTextBox.getText().isBlank() || storeTextBox.getText().isBlank()) {
+    public void onSearchButtonClick(ActionEvent actionEvent) {
+
+        if (searchTextBox.getText().isBlank()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Data Missing");
@@ -35,9 +37,9 @@ public class MoveTool {
             });
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
+            alert.setTitle("Searching");
             alert.setHeaderText("Success");
-            alert.setContentText("Tool: " + toolTextBox.getText() + ". Moved successfully to Store: " + storeTextBox.getText() + ".");
+            alert.setContentText("Tool: " + searchTextBox.getText() + ".");
             alert.showAndWait().ifPresent(rs -> {
                 if (rs == ButtonType.OK) {
                     System.out.println("Pressed OK.");
@@ -47,7 +49,7 @@ public class MoveTool {
             //variables
             Connection connection = null;
             Statement statement = null;
-//            ResultSet resultSet = null;
+            ResultSet resultSet = null;
             try {
                 Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             } catch (ClassNotFoundException cnfex) {
@@ -62,18 +64,32 @@ public class MoveTool {
 
                 statement = connection.createStatement();
 
-                String query = "UPDATE Stores SET store = " + storeTextBox.getText() + "WHERE tool = " + toolTextBox.getText() + ");";
+                String query = "SELECT * FROM BookingReservations WHERE id = " + searchTextBox.getText();
                 System.out.println(query);
 
-                statement.executeUpdate(query);
-                System.out.println("UPDATE Statement run.");
+                resultSet = statement.executeQuery(query);
+                System.out.println("SELECT Statement run.");
+
+                resultSet.next();
+                outputLabel.setText(resultSet.getString(3));
+
+                while (resultSet.next()) {
+                    System.out.println(resultSet.getInt(1) + "\t" +
+                            resultSet.getString(2) + "\t" +
+                            resultSet.getString(3) + "\t" +
+                            resultSet.getString(4) + "\t" +
+                            resultSet.getString(5) + "\t" +
+                            resultSet.getString(6) + "\t" +
+                            resultSet.getString(7) + "\t" +
+                            resultSet.getString(8));
+                }
 
             } catch (SQLException sqlex) {
                 sqlex.printStackTrace();
             } finally {
                 try {
                     if (null != connection) {
-//                        resultSet.close();
+                        resultSet.close();
                         statement.close();
 
                         connection.close();
@@ -84,6 +100,8 @@ public class MoveTool {
 
             }
         }
+
+
     }
 
     public void onHomeButtonClick(ActionEvent actionEvent) throws IOException {

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane  fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toolscansystem.SearchScreen">
+   <children>
+      <Label layoutX="167.0" layoutY="10.0" text="Search" textAlignment="CENTER">
+         <font>
+            <Font name="JetBrains Mono Regular" size="72.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchTextBox" layoutX="223.0" layoutY="107.0" />
+      <Button layoutX="274.0" layoutY="188.0" mnemonicParsing="false" onAction="#onSearchButtonClick" text="Search" />
+      <Label fx:id="outputLabel" layoutX="286.0" layoutY="266.0" text="Label" />
+      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
+   </children>
+</AnchorPane>

@@ -26,6 +26,11 @@ public class MainScreen {
         rootPane.getChildren().setAll(pane);
     }
 
+    public void onSearchButtonClick(ActionEvent actionEvent) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("searchScreen.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+
 }
 
 
