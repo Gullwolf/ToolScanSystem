@@ -24,6 +24,8 @@ public class SearchScreen {
     private Label outputLabel;
 
     public void onSearchButtonClick(ActionEvent actionEvent) {
+        outputLabel.setVisible(false);
+        outputLabel.setText("");
 
         if (searchTextBox.getText().isBlank()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -57,31 +59,26 @@ public class SearchScreen {
                 cnfex.printStackTrace();
             }
             try {
-                String msAccDB = "./BookingDatabase.accdb";
+                String msAccDB = "./ToolStore.accdb";
                 String dbURL = "jdbc:ucanaccess://" + msAccDB;
 
                 connection = DriverManager.getConnection(dbURL);
 
                 statement = connection.createStatement();
 
-                String query = "SELECT * FROM BookingReservations WHERE id = " + searchTextBox.getText();
+                String query = "SELECT * FROM ToolStore WHERE Tool = '" + searchTextBox.getText() + "';";
                 System.out.println(query);
 
                 resultSet = statement.executeQuery(query);
                 System.out.println("SELECT Statement run.");
 
                 resultSet.next();
-                outputLabel.setText(resultSet.getString(3));
+                outputLabel.setVisible(true);
+                outputLabel.setText(resultSet.getString(2));
 
                 while (resultSet.next()) {
                     System.out.println(resultSet.getInt(1) + "\t" +
-                            resultSet.getString(2) + "\t" +
-                            resultSet.getString(3) + "\t" +
-                            resultSet.getString(4) + "\t" +
-                            resultSet.getString(5) + "\t" +
-                            resultSet.getString(6) + "\t" +
-                            resultSet.getString(7) + "\t" +
-                            resultSet.getString(8));
+                            resultSet.getString(2));
                 }
 
             } catch (SQLException sqlex) {

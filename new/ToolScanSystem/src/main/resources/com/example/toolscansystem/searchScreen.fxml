@@ -4,16 +4,24 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane  fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toolscansystem.SearchScreen">
+<AnchorPane fx:id="rootPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toolscansystem.SearchScreen">
    <children>
-      <Label layoutX="167.0" layoutY="10.0" text="Search" textAlignment="CENTER">
+      <Label contentDisplay="CENTER" layoutX="171.0" layoutY="14.0" text="Search" underline="true">
          <font>
             <Font name="JetBrains Mono Regular" size="72.0" />
          </font>
       </Label>
-      <TextField fx:id="searchTextBox" layoutX="223.0" layoutY="107.0" />
-      <Button layoutX="274.0" layoutY="188.0" mnemonicParsing="false" onAction="#onSearchButtonClick" text="Search" />
-      <Label fx:id="outputLabel" layoutX="286.0" layoutY="266.0" text="Label" />
+      <Label layoutX="264.0" layoutY="170.0" text="Located: ">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchTextBox" layoutX="226.0" layoutY="111.0" />
+      <Button layoutX="275.0" layoutY="136.0" mnemonicParsing="false" onAction="#onSearchButtonClick" text="Search" />
+      <Label fx:id="outputLabel" layoutX="264.0" layoutY="200.0" text="Label" visible="false">
+         <font>
+            <Font name="JetBrains Mono Regular" size="24.0" />
+         </font></Label>
       <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#onHomeButtonClick" text="Home" />
    </children>
 </AnchorPane>

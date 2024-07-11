@@ -24,14 +24,14 @@ public class MsAccessDatabaseConnection {
 
         //Opening database connection
         try{
-            String msAccDB = "./BookingDatabase.accdb";
+            String msAccDB = "./ToolStore.accdb";
             String dbURL = "jdbc:ucanaccess://" + msAccDB;
 
             connection = DriverManager.getConnection(dbURL);
 
             statement =connection.createStatement();
 
-            resultSet = statement.executeQuery("SELECT * FROM BookingReservations");
+            resultSet = statement.executeQuery("SELECT * ToolStore");
 
             System.out.println("ID\tTitle\tFirstName\tLastName\tCustomerMessage\tPhoneNumber\tBookingDate\tNumberOfPeople");
             System.out.println("==\t=====\t=========\t========\t===============\t===========\t===========\t==============");

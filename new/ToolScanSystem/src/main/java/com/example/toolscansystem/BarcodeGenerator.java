@@ -13,6 +13,10 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class BarcodeGenerator {
 
@@ -21,6 +25,7 @@ public class BarcodeGenerator {
 
     @FXML
     private AnchorPane rootPane;
+
     public void onBarcodeGenerateButtonClick(ActionEvent actionEvent) throws BarcodeException {
 
         String image_name = barcodeTextBox.getText() + ".png";
@@ -36,10 +41,11 @@ public class BarcodeGenerator {
             code128.generateBarcode(canvas, myString);
             canvas.finish();
             //write to png file
-            FileOutputStream fos = new FileOutputStream(".\\"+image_name);
+            FileOutputStream fos = new FileOutputStream(".\\" + image_name);
             fos.write(baos.toByteArray());
             fos.flush();
             fos.close();
+            addToolToDataBase(barcodeTextBox.getText());
             System.out.println("Done!");
         } catch (Exception e) {
             // TODO: handle exception
@@ -51,4 +57,45 @@ public class BarcodeGenerator {
         rootPane.getChildren().setAll(pane);
     }
 
+    private void addToolToDataBase(String tool) {
+        //variables
+        Connection connection = null;
+        Statement statement = null;
+//            ResultSet resultSet = null;
+        try {
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+        } catch (ClassNotFoundException cnfex) {
+            System.out.println("Problem in loading or " + "registering MS Access JDBC driver");
+            cnfex.printStackTrace();
+        }
+        try {
+            String msAccDB = "./ToolStore.accdb";
+            String dbURL = "jdbc:ucanaccess://" + msAccDB;
+
+            connection = DriverManager.getConnection(dbURL);
+
+            statement = connection.createStatement();
+
+            String query = "INSERT INTO ToolStore (Tool, Store) VALUES ('" + tool + "', 'Default');";
+            System.out.println(query);
+
+            statement.execute(query);
+            System.out.println("INSERT Statement run.");
+
+        } catch (SQLException sqlex) {
+            sqlex.printStackTrace();
+        } finally {
+            try {
+                if (null != connection) {
+//                    resultSet.close();
+                    statement.close();
+
+                    connection.close();
+                }
+            } catch (SQLException sqlex) {
+                sqlex.printStackTrace();
+            }
+        }
+    }
 }
+
