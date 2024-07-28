@@ -13,7 +13,7 @@ public class ToolScanner extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));
         primaryStage.setTitle("Tool Scanner");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 640, 400));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
