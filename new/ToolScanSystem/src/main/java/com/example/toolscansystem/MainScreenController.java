@@ -35,6 +35,11 @@ public class MainScreenController {
         rootPane.getChildren().setAll(pane);
     }
 
+    public void onViewTableButtonClick(ActionEvent actionEvent) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("tableViewScreen.fxml"));
+        rootPane.getChildren().setAll(pane);
+    }
+
     public void onNukeButtonClick(ActionEvent actionEvent) throws  IOException {
         Connection connection = null;
         Statement statement = null;

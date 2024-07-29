@@ -12,6 +12,7 @@ public class ToolScanner extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("mainScreen.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("tableViewScreen.fxml"));
         primaryStage.setTitle("Tool Scanner");
         primaryStage.setScene(new Scene(root, 640, 400));
         primaryStage.setResizable(false);
